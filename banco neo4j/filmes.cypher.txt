@@ -1,0 +1,271 @@
+CREATE CONSTRAINT IF NOT EXISTS FOR (p:Person) REQUIRE (p.name) IS UNIQUE;
+CREATE INDEX IF NOT EXISTS FOR (p:Person) ON (p.born);
+CREATE CONSTRAINT IF NOT EXISTS FOR (m:Movie) REQUIRE (m.title) IS UNIQUE;
+CREATE INDEX IF NOT EXISTS FOR (m:Movie) ON (m.released);
+
+CREATE (TheHotChick:Movie {title:'The Hot Chick', released:2002, tagline:'The hottest chick in town just switched bodies with the luckiest loser in the world.'})
+CREATE (RobSchneider:Person {name:"Rob Schneider"})
+CREATE (AnnaFaris:Person {name:'Anna Faris'})
+CREATE (MatthewLawrence:Person {name:'Matthew Lawrence'})
+CREATE (EricChristianOlsen:Person {name:'Eric Christian Olsen'})
+CREATE (RobertDavi:Person {name:'Robert Davi'})
+CREATE (AdamSandler:Person {name:'Adam Sandler'})
+CREATE (TomBrady:Person {name:'Tom Brady'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Clive Maxtone / Jessica']}]->(TheHotChick),
+(RobSchneider)-[:ACTED_IN {roles:['April']}]->(TheHotChick),
+(AnnaFaris)-[:ACTED_IN {roles:['Jessica']}]->(TheHotChick),
+(MatthewLawrence)-[:ACTED_IN {roles:['Billy']}]->(TheHotChick),
+(EricChristianOlsen)-[:ACTED_IN {roles:['Jake']}]->(TheHotChick),
+(RobertDavi)-[:ACTED_IN {roles:['Detective']}]->(TheHotChick),
+(TomBrady)-[:DIRECTED]->(TheHotChick)
+
+CREATE (GrownUps:Movie {title:'Grown Ups', released:2010, tagline:'Boys will be boys... some longer than others.'})
+CREATE (KevinJames:Person {name:'Kevin James'})
+CREATE (ChrisRock:Person {name:'Chris Rock'})
+CREATE (DavidSpade:Person {name:'David Spade'})
+CREATE (SalmaHayek:Person {name:'Salma Hayek'})
+CREATE (DennisDugan:Person {name:'Dennis Dugan'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Lenny Feder']}]->(GrownUps),
+(RobSchneider)-[:ACTED_IN {roles:['Rob Hilliard']}]->(GrownUps),
+(KevinJames)-[:ACTED_IN {roles:['Eric Lamonsoff']}]->(GrownUps),
+(ChrisRock)-[:ACTED_IN {roles:['Kurt McKenzie']}]->(GrownUps),
+(DavidSpade)-[:ACTED_IN {roles:['Marcus Higgins']}]->(GrownUps),
+(SalmaHayek)-[:ACTED_IN {roles:['Roxanne Chase-Feder']}]->(GrownUps),
+(DennisDugan)-[:DIRECTED]->(GrownUps)
+
+CREATE (TheWaterboy:Movie {title:'The Waterboy', released:1998, tagline:'You can mess with him. But don’t mess with his water.'})
+CREATE (HenryWinkler:Person {name:'Henry Winkler'})
+CREATE (FairuzaBalk:Person {name:'Fairuza Balk'})
+CREATE (KathyBates:Person {name:'Kathy Bates'})
+CREATE (FrankCoraci:Person {name:'Frank Coraci'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Bobby Boucher']}]->(TheWaterboy),
+(RobSchneider)-[:ACTED_IN {roles:['Townie']}]->(TheWaterboy),
+(HenryWinkler)-[:ACTED_IN {roles:['Coach Klein']}]->(TheWaterboy),
+(FairuzaBalk)-[:ACTED_IN {roles:['Vicki Vallencourt']}]->(TheWaterboy),
+(KathyBates)-[:ACTED_IN {roles:['Helen Boucher']}]->(TheWaterboy),
+(FrankCoraci)-[:DIRECTED]->(TheWaterboy)
+
+CREATE (BigDaddy:Movie {title:'Big Daddy', released:1999, tagline:"Nature called. Look who answered."})
+CREATE (JonStewart:Person {name:'Jon Stewart'})
+CREATE (ColeSprouse:Person {name:'Cole Sprouse'})
+CREATE (DylanSprouse:Person {name:'Dylan Sprouse'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Sonny Koufax']}]->(BigDaddy),
+(RobSchneider)-[:ACTED_IN {roles:['Nazo']}]->(BigDaddy),
+(JonStewart)-[:ACTED_IN {roles:['Kevin Gerrity']}]->(BigDaddy),
+(ColeSprouse)-[:ACTED_IN {roles:['Julian McGrath']}]->(BigDaddy),
+(DylanSprouse)-[:ACTED_IN {roles:['Julian McGrath']}]->(BigDaddy),
+(DennisDugan)-[:DIRECTED]->(BigDaddy)
+
+CREATE (LittleNicky:Movie {title:'Little Nicky', released:2000, tagline:"He's Never Been To Earth. He's Never Even Slept Over Some Other Dude\'s House."})
+CREATE (HarveyKeitel:Person {name:'Harvey Keitel'})
+CREATE (RhysIfans:Person {name:'Rhys Ifans'})
+CREATE (PatriciaArquette:Person {name:'Patricia Arquette'})
+CREATE (StevenBrill:Person {name:'Steven Brill'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Nicky']}]->(LittleNicky),
+(RobSchneider)-[:ACTED_IN {roles:['Deacon']}]->(LittleNicky),
+(HarveyKeitel)-[:ACTED_IN {roles:['Dad']}]->(LittleNicky),
+(RhysIfans)-[:ACTED_IN {roles:['Adrian']}]->(LittleNicky),
+(PatriciaArquette)-[:ACTED_IN {roles:['Valerie']}]->(LittleNicky),
+(StevenBrill)-[:DIRECTED]->(LittleNicky)
+
+CREATE (MrDeeds:Movie {title:'Mr. Deeds', released:2002, tagline:'Small town kid, big time right hook.'})
+CREATE (WinonaRyder:Person {name:'Winona Ryder'})
+CREATE (PeterGallagher:Person {name:'Peter Gallagher'})
+CREATE (JohnTurturro:Person {name:'John Turturro'})
+CREATE (JaredHarris:Person {name:'Jared Harris'})
+CREATE (StevenBrill)-[:DIRECTED]->(MrDeeds)
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Longfellow Deeds']}]->(MrDeeds),
+(RobSchneider)-[:ACTED_IN {roles:['Nazo']}]->(MrDeeds),
+(WinonaRyder)-[:ACTED_IN {roles:['Babe Bennett']}]->(MrDeeds),
+(PeterGallagher)-[:ACTED_IN {roles:['Chuck Cedar']}]->(MrDeeds),
+(JohnTurturro)-[:ACTED_IN {roles:['Emilio Lopez']}]->(MrDeeds),
+(JaredHarris)-[:ACTED_IN {roles:['Mac McGrath']}]->(MrDeeds)
+
+CREATE (FirstDates:Movie {title:'50 First Dates', released:2004, tagline:'Imagine having to win over the girl of your dreams... every friggin\' day.'})
+CREATE (DrewBarrymore:Person {name:'Drew Barrymore'})
+CREATE (SeanAstin:Person {name:'Sean Astin'})
+CREATE (DanAykroyd:Person {name:'Dan Aykroyd'})
+CREATE (BlakeClark:Person {name:'Blake Clark'})
+CREATE (PeterSegal:Person {name:'Peter Segal'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Henry Roth']}]->(FirstDates),
+(RobSchneider)-[:ACTED_IN {roles:['Ula']}]->(FirstDates),
+(DrewBarrymore)-[:ACTED_IN {roles:['Lucy Whitmore']}]->(FirstDates),
+(SeanAstin)-[:ACTED_IN {roles:['Doug Whitmore']}]->(FirstDates),
+(DanAykroyd)-[:ACTED_IN {roles:['Dr. Keats']}]->(FirstDates),
+(BlakeClark)-[:ACTED_IN {roles:['Marlin Whitmore']}]->(FirstDates),
+(PeterSegal)-[:DIRECTED]->(FirstDates)
+
+CREATE (TheLongestYard:Movie {title:'The Longest Yard', released:2005, tagline:'If you can\'t get out, get even.'})
+CREATE (BurtReynolds:Person {name:'Burt Reynolds'})
+CREATE (PeterSegal)-[:DIRECTED]->(TheLongestYard)
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Paul Crewe']}]->(TheLongestYard),
+(RobSchneider)-[:ACTED_IN {roles:['Roberto']}]->(TheLongestYard),
+(ChrisRock)-[:ACTED_IN {roles:['Caretaker']}]->(TheLongestYard),
+(BurtReynolds)-[:ACTED_IN {roles:['Coach Nate Scarborough']}]->(TheLongestYard)
+
+CREATE (Click:Movie {title:'Click', released:2006, tagline:'What If You Had A Universal Remote... That Controlled Your Universe?'})
+CREATE (KateBeckinsale:Person {name:'Kate Beckinsale'})
+CREATE (DavidHasselhoff:Person {name:'David Hasselhoff'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Michael Newman']}]->(Click),
+(RobSchneider)-[:ACTED_IN {roles:['Prince Habeeboo']}]->(Click),
+(KateBeckinsale)-[:ACTED_IN {roles:['Donna Newman']}]->(Click),
+(DavidHasselhoff)-[:ACTED_IN {roles:['Ammer']}]->(Click),
+(HenryWinkler)-[:ACTED_IN {roles:['Morty']}]->(Click),
+(FrankCoraci)-[:DIRECTED]->(Click)
+
+CREATE (GrownUps2:Movie {title:'Grown Ups 2', released:2013, tagline:"They'll do anything for their families... except grow up."})
+CREATE (TaylorLautner:Person {name:'Taylor Lautner'})
+CREATE (OliverCooper:Person {name:'Oliver Cooper'})
+CREATE (DennisDugan)-[:DIRECTED]->(GrownUps2)
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Lenny Feder']}]->(GrownUps2),
+(RobSchneider)-[:ACTED_IN {roles:['Rob Hilliard']}]->(GrownUps2),
+(KevinJames)-[:ACTED_IN {roles:['Eric Lamonsoff']}]->(GrownUps2),
+(ChrisRock)-[:ACTED_IN {roles:['Kurt McKenzie']}]->(GrownUps2),
+(DavidSpade)-[:ACTED_IN {roles:['Marcus Higgins']}]->(GrownUps2),
+(SalmaHayek)-[:ACTED_IN {roles:['Roxanne Chase-Feder']}]->(GrownUps2),
+(TaylorLautner)-[:ACTED_IN {roles:['Andy']}]->(GrownUps2),
+(OliverCooper)-[:ACTED_IN {roles:['Dickie']}]->(GrownUps2)
+
+CREATE (TheRidiculous6:Movie {title:'The Ridiculous 6', released:2015, tagline:'The Wildest Adventure of the West'})
+CREATE (TerryCrews:Person {name:'Terry Crews'})
+CREATE (JorgeGarcia:Person {name:'Jorge Garcia'})
+CREATE (FrankCoraci)-[:DIRECTED]->(TheRidiculous6)
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Tommy “White Knife” Stockburn']}]->(TheRidiculous6),
+(RobSchneider)-[:ACTED_IN {roles:['Ramón “El Chicano” Vega']}]->(TheRidiculous6),
+(TaylorLautner)-[:ACTED_IN {roles:['Lil’ Pete']}]->(TheRidiculous6),
+(TerryCrews)-[:ACTED_IN {roles:['Chico']}]->(TheRidiculous6),
+(JorgeGarcia)-[:ACTED_IN {roles:['Herm']}]->(TheRidiculous6)
+
+CREATE (SandyWexler:Movie {title:'Sandy Wexler', released:2017, tagline:"He's going to need a miracle to make it in Hollywood."})
+CREATE (JenniferHudson:Person {name:'Jennifer Hudson'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Sandy Wexler']}]->(SandyWexler),
+(JenniferHudson)-[:ACTED_IN {roles:['Courtney Clarke']}]->(SandyWexler),
+(RobSchneider)-[:ACTED_IN {roles:['Firuz']}]->(SandyWexler),
+(StevenBrill)-[:DIRECTED]->(SandyWexler)
+
+CREATE (TheWrongMissy:Movie {title:'The Wrong Missy', released:2020, tagline:'Send a text, get a psycho.'})
+CREATE (LaurenLapkus:Person {name:'Lauren Lapkus'})
+CREATE (TylerSpindel:Person {name:'Tyler Spindel'})
+CREATE (DavidSpade)-[:ACTED_IN {roles:['Tim Morris']}]->(TheWrongMissy),
+(LaurenLapkus)-[:ACTED_IN {roles:['Missy']}]->(TheWrongMissy),
+(RobSchneider)-[:ACTED_IN {roles:['Komante']}]->(TheWrongMissy),
+(TylerSpindel)-[:DIRECTED]->(TheWrongMissy)
+
+CREATE (HubieHalloween:Movie {title:'Hubie Halloween', released:2020, tagline:"If you love Halloween, you'll love this!"})
+CREATE (JulieBowen:Person {name:'Julie Bowen'})
+CREATE (TimHerlihy:Person {name:'Tim Herlihy'})
+CREATE (SteveBrill)-[:DIRECTED]->(HubieHalloween)
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Hubie DuBois']}]->(HubieHalloween),
+(RobSchneider)-[:ACTED_IN {roles:['Sgt. Steve Downey']}]->(HubieHalloween),
+(JulieBowen)-[:ACTED_IN {roles:['Violet Valentine']}]->(HubieHalloween),
+(TimHerlihy)-[:ACTED_IN {roles:['Pastor Dave']}]->(HubieHalloween)
+
+CREATE (HomeTeam:Movie {title:'Home Team', released:2022, tagline:'You know the drill.'})
+CREATE (ChrisTitone:Person {name:'Chris Titone'})
+CREATE (CharlesKorin:Person {name:'Charles Korin'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Sean Payton']}]->(HomeTeam),
+(RobSchneider)-[:ACTED_IN {roles:['Sal']}]->(HomeTeam),
+(ChrisTitone)-[:ACTED_IN {roles:['Coach Baker']}]->(HomeTeam),
+(CharlesKorin)-[:DIRECTED]->(HomeTeam)
+
+CREATE (YouDontMessWithTheZohan:Movie {title:"You Don't Mess with the Zohan", released:2008, tagline:"Lather. Rinse. Save the world."})
+CREATE (NickSwardson:Person {name:'Nick Swardson'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Zohan']}]->(YouDontMessWithTheZohan),
+(RobSchneider)-[:ACTED_IN {roles:['Salim']}]->(YouDontMessWithTheZohan),
+(EmmanuelleChriqui)-[:ACTED_IN {roles:['Dalia']}]->(YouDontMessWithTheZohan),
+(DennisDugan)-[:DIRECTED]->(YouDontMessWithTheZohan)
+
+CREATE (BedtimeStories:Movie {title:'Bedtime Stories', released:2008, tagline:'Whatever they dream up... he has to survive.'})
+CREATE (GuyPearce:Person {name:'Guy Pearce'})
+CREATE (KeriRussell:Person {name:'Keri Russell'})
+CREATE (AdamShankman:Person {name:'Adam Shankman'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Skeeter Bronson']}]->(BedtimeStories),
+(KeriRussell)-[:ACTED_IN {roles:['Jill']}]->(BedtimeStories),
+(GuyPearce)-[:ACTED_IN {roles:['Kendall']}]->(BedtimeStories),
+(RussellBrand)-[:ACTED_IN {roles:['Mickey']}]->(BedtimeStories),
+(AishaTyler)-[:ACTED_IN {roles:['Donna Hynde']}]->(BedtimeStories),
+(CourteneyCox)-[:ACTED_IN {roles:['Wendy']}]->(BedtimeStories),
+(AdamShankman)-[:DIRECTED]->(BedtimeStories)
+
+CREATE (TheAnimal:Movie {title:'The Animal', released:2001, tagline:"He wasn't much of a man... Now he's not much of an animal."})
+CREATE (LukeGreenfield:Person {name:'Luke Greenfield'})
+CREATE (RobSchneider)-[:ACTED_IN {roles:['Marvin Mange']}]->(TheAnimal),
+(ColleenHaskell)-[:ACTED_IN {roles:['Rianna']}]->(TheAnimal),
+(JohnCMcGinley)-[:ACTED_IN {roles:['Sgt. Sisk']}]->(TheAnimal),
+(EdwardAsner)-[:ACTED_IN {roles:['Chief']}]->(TheAnimal),
+(LukeGreenfield)-[:DIRECTED]->(TheAnimal)
+
+CREATE (INowPronounceYouChuckAndLarry:Movie {title:"I Now Pronounce You Chuck & Larry", released:2007, tagline:"They're as straight as can be, but don't tell anyone."})
+CREATE (JessicaBiel:Person {name:'Jessica Biel'})
+CREATE (VingRhames:Person {name:'Ving Rhames'})
+CREATE (SteveBuscemi:Person {name:'Steve Buscemi'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Chuck Levine']}]->(INowPronounceYouChuckAndLarry),
+(KevinJames)-[:ACTED_IN {roles:['Larry Valentine']}]->(INowPronounceYouChuckAndLarry),
+(JessicaBiel)-[:ACTED_IN {roles:['Alex McDonough']}]->(INowPronounceYouChuckAndLarry),
+(DanAykroyd)-[:ACTED_IN {roles:['Captain Tucker']}]->(INowPronounceYouChuckAndLarry),
+(VingRhames)-[:ACTED_IN {roles:['Duncan']}]->(INowPronounceYouChuckAndLarry),
+(SteveBuscemi)-[:ACTED_IN {roles:['Clinton Fitzer']}]->(INowPronounceYouChuckAndLarry)
+
+CREATE (EightCrazyNights:Movie {title:'Eight Crazy Nights', released:2002, tagline:'It’s naughty. It’s nice. It’s animated.'})
+CREATE (AllenCovert:Person {name:'Allen Covert'})
+CREATE (JonLovitz:Person {name:'Jon Lovitz'})
+CREATE (TyraBanks:Person {name:'Tyra Banks'})
+CREATE (AdamSandler)-[:ACTED_IN {roles:['Davey Stone']}]->(EightCrazyNights),
+(AllenCovert)-[:ACTED_IN {roles:['Whitey Duvall']}]->(EightCrazyNights),
+(JonLovitz)-[:ACTED_IN {roles:['Tom Baltezor']}]->(EightCrazyNights),
+(TyraBanks)-[:ACTED_IN {roles:['Victoria']}]->(EightCrazyNights),
+(BlakeClark)-[:ACTED_IN {roles:['Eleanor']}]->(EightCrazyNights),
+(SethKearsley)-[:DIRECTED]->(EightCrazyNights)
+
+CREATE (DeuceBigalowEuropeanGigolo:Movie {title:'Deuce Bigalow: European Gigolo', released:2005, tagline:'For the women of Europe... the price of love just got a lot cheaper.'})
+CREATE (EddieGriffin:Person {name:'Eddie Griffin'})
+CREATE (ArijaBareikis:Person {name:'Arija Bareikis'})
+CREATE (JeroenKrabbé:Person {name:'Jeroen Krabbé'})
+CREATE (TilSchweiger:Person {name:'Til Schweiger'})
+CREATE (RobSchneider)-[:ACTED_IN {roles:['Deuce Bigalow']}]->(DeuceBigalowEuropeanGigolo),
+(EddieGriffin)-[:ACTED_IN {roles:['Tiberius']}]->(DeuceBigalowEuropeanGigolo),
+(ArijaBareikis)-[:ACTED_IN {roles:['Kate']}]->(DeuceBigalowEuropeanGigolo),
+(JeroenKrabbé)-[:ACTED_IN {roles:['Gaspar Voorsboch']}]->(DeuceBigalowEuropeanGigolo),
+(TilSchweiger)-[:ACTED_IN {roles:['Heinz Hummer']}]->(DeuceBigalowEuropeanGigolo),
+(MikeBigelow:Person {name:'Mike Bigelow'})-[:DIRECTED]->(DeuceBigalowEuropeanGigolo)
+
+CREATE (Nausicaa:Movie {title:'Nausicaä of the Valley of the Wind', released:1984, tagline:'A young princess and her allies struggle to heal a world'})
+CREATE (PorcoRosso:Movie {title:'Porco Rosso', released:1992, tagline:'A pig who turns into a man when flying a plane'})
+CREATE (TheWindRises:Movie {title:'The Wind Rises', released:2013, tagline:'A look at the life of Jiro Horikoshi, the man who designed Japanese fighter planes during World War II'})
+CREATE (KikisDeliveryService:Movie {title:"Kiki's Delivery Service", released:1989, tagline:"I was feeling blue, but I'm better now."})
+
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(Nausicaa)
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(KikisDeliveryService)
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(PorcoRosso)
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(TheWindRises)
+
+CREATE (PrincessMononoke:Movie {title:'Princess Mononoke', released:1997, tagline:'The fate of the world rests on the courage of one warrior.'})
+CREATE (MyNeighborTotoro:Movie {title:'My Neighbor Totoro', released:1988, tagline:'These strange creatures still exist in Japan. Rumor has it that Totoros are supernatural beings.'})
+CREATE (CastleInTheSky:Movie {title:'Castle in the Sky', released:1986, tagline:'Fly the high skies!'})
+CREATE (WhisperOfTheHeart:Movie {title:'Whisper of the Heart', released:1995, tagline:'Wanting to be a part of your dreams.'})
+
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(PrincessMononoke)
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(MyNeighborTotoro)
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(CastleInTheSky)
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(WhisperOfTheHeart)
+
+CREATE (SpiritedAway:Movie {title:'Spirited Away', released:2001, tagline:'The tunnel led Chihiro to a mysterious town...'})
+CREATE (HowlsMovingCastle:Movie {title:"Howl's Moving Castle", released:2004, tagline:'The moving castle of a young wizard and his companion'})
+CREATE (Ponyo:Movie {title:'Ponyo', released:2008, tagline:'Welcome to a world where anything is possible'})
+
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(SpiritedAway)
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(HowlsMovingCastle)
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(Ponyo)
+
+CREATE (LupinIII:Movie {title: 'Lupin III: The Castle of Cagliostro', released: 1979, tagline: 'O Castelo de Cagliostro'})
+CREATE (HayaoMiyazaki)-[:DIRECTED]->(LupinIII)
+
+CREATE (Critic1:Person {name:'Critic1'})
+CREATE (Critic2:Person {name:'Critic2'})
+CREATE (Critic3:Person {name:'Critic3'})
+
+CREATE (PrincessMononoke)-[:REVIEWED {score:9.5}]->(Critic1)
+CREATE (MyNeighborTotoro)-[:REVIEWED {score:8.8}]->(Critic2)
+CREATE (KikisDeliveryService)-[:REVIEWED {score:8.6}]->(Critic3)
+CREATE (CastleInTheSky)-[:REVIEWED {score:9.0}]->(Critic1)
+CREATE (WhisperOfTheHeart)-[:REVIEWED {score:8.9}]->(Critic2)
